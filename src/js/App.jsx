@@ -88,9 +88,9 @@ function App() {
   return (
     <>
       <div className="game">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-          <div id={i} key={i} onClick={handleClick}>
-            <i className="material-icons">{getIcon(i)}</i>
+        {Object.entries(initalGameState).map((value, i) => (
+          <div id={i + 1} key={i} onClick={handleClick}>
+            <i className="material-icons">{getIcon(i + 1)}</i>
           </div>
         ))}
       </div>
