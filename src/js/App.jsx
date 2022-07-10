@@ -29,20 +29,6 @@ function App() {
 
   const [activePlayer, setActivePlayer] = useState("x");
 
-  const addCross = (element) => {
-    const crossIcon = document.createElement("i");
-    crossIcon.classList.add("material-icons");
-    crossIcon.textContent = "close";
-    element.appendChild(crossIcon);
-  };
-
-  const addCircle = (element) => {
-    const crossIcon = document.createElement("i");
-    crossIcon.classList.add("material-icons");
-    crossIcon.textContent = "circle";
-    element.appendChild(crossIcon);
-  };
-
   useEffect(() => {
     checkWin();
   }, [gameState]);
