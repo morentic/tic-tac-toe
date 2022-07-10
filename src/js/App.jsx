@@ -76,6 +76,7 @@ function App() {
 
   return (
     <>
+      <h1>Tic Tac Toe</h1>
       {gameover ? (
         <div>Player {activePlayer === "x" ? "o" : "x"} wins!</div>
       ) : (
