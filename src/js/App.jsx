@@ -38,9 +38,11 @@ function App() {
   const checkWin = () => {
     const player = activePlayer === "x" ? "o" : "x";
     wins.map((win) => {
-      win.map((square, i) => {
+      let i = 0;
+      win.map((square) => {
         if (gameState[square] !== player) return;
-        if (i === 2) {
+        i++;
+        if (i === 3) {
           setGameover(true);
         }
       });
