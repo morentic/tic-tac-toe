@@ -29,6 +29,8 @@ function App() {
 
   const [activePlayer, setActivePlayer] = useState("x");
 
+  const [gameover, setGameover] = useState(false);
+
   useEffect(() => {
     checkWin();
   }, [gameState]);
@@ -36,12 +38,10 @@ function App() {
   const checkWin = () => {
     const player = activePlayer === "x" ? "o" : "x";
     wins.map((win) => {
-      let i = 0;
-      win.map((square) => {
+      win.map((square, i) => {
         if (gameState[square] !== player) return;
-        i++;
-        if (i === 3) {
-          console.log(`Player ${player} wins!`);
+        if (i === 2) {
+          setGameover(true);
         }
       });
     });
@@ -50,7 +50,6 @@ function App() {
   const handleClick = (event) => {
     const newGameState = gameState;
     newGameState[event.target.id] = activePlayer;
-
     setGameState({ ...gameState, newGameState });
     setActivePlayer(activePlayer === "x" ? "o" : "x");
   };
@@ -58,6 +57,7 @@ function App() {
   const restart = () => {
     setGameState(initalGameState);
     setActivePlayer("x");
+    setGameover(false);
   };
 
   const getIcon = (id) => {
@@ -73,6 +73,9 @@ function App() {
 
   return (
     <>
+      {gameover ? (
+        <div>Player {activePlayer === "x" ? "o" : "x"} wins!</div>
+      ) : null}
       <div className="game">
         {Object.entries(initalGameState).map((value, i) => (
           <div id={i + 1} key={i} onClick={handleClick}>
