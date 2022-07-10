@@ -10,7 +10,7 @@ function App() {
     [2, 5, 8],
     [3, 6, 9],
     [1, 5, 9],
-    [3, 4, 7],
+    [3, 5, 7],
   ];
 
   const initalGameState = {
@@ -78,7 +78,9 @@ function App() {
     <>
       {gameover ? (
         <div>Player {activePlayer === "x" ? "o" : "x"} wins!</div>
-      ) : null}
+      ) : (
+        <div>Player {activePlayer}</div>
+      )}
       <div className="game">
         {Object.entries(initalGameState).map((value, i) => (
           <div id={i + 1} key={i} onClick={handleClick}>
