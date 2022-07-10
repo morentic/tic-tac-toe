@@ -29,8 +29,6 @@ function App() {
 
   const [activePlayer, setActivePlayer] = useState("x");
 
-  const [icon, setIcon] = useState();
-
   const addCross = (element) => {
     const crossIcon = document.createElement("i");
     crossIcon.classList.add("material-icons");
