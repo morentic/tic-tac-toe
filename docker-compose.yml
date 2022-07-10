@@ -1,0 +1,10 @@
+services:
+  node:
+    image: node:16
+    user: node
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - "1234:1234"
+    command: yarn parcel src/index.html
