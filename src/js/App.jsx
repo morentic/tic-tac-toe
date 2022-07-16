@@ -51,9 +51,7 @@ function App() {
 
   const handleClick = (event) => {
     if (gameState[event.target.id] !== null) return;
-    const newGameState = gameState;
-    newGameState[event.target.id] = activePlayer;
-    setGameState({ ...gameState, newGameState });
+    setGameState({ ...gameState, [event.target.id]: activePlayer });
     setActivePlayer(activePlayer === "x" ? "o" : "x");
   };
 
