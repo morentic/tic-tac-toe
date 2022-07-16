@@ -1,5 +1,4 @@
-import { createRoot } from "react-dom/client";
-import { StrictMode, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const wins = [
@@ -92,10 +91,4 @@ function App() {
   );
 }
 
-const root = createRoot(document.getElementById("root"));
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+export default App;
